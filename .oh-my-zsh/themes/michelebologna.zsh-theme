@@ -24,6 +24,7 @@
 # * '<>' if local repo is diverged
 
 local green="%{$fg_bold[green]%}"
+local nbgreen="%{$fg[green]%}"
 local red="%{$fg_bold[red]%}"
 local cyan="%{$fg_bold[cyan]%}"
 local yellow="%{$fg_bold[yellow]%}"
@@ -33,7 +34,7 @@ local white="%{$fg_bold[white]%}"
 local reset="%{$reset_color%}"
 
 local -a color_array
-color_array=($green $red $cyan $yellow $blue $magenta $white)
+color_array=($nbgreen $green $red $cyan $yellow $blue $magenta $white)
 
 local username_normal_color=$white
 local username_root_color=$red
@@ -61,9 +62,9 @@ ZSH_THEME_GIT_PROMPT_DIRTY=""
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_UNTRACKED="$red%%"
 ZSH_THEME_GIT_PROMPT_MODIFIED="$red*"
-ZSH_THEME_GIT_PROMPT_ADDED="$green+"
+ZSH_THEME_GIT_PROMPT_ADDED="$nbgreen+"
 ZSH_THEME_GIT_PROMPT_STASHED="$blue$"
-ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE="$green="
+ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE="$nbgreen="
 ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=">"
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="<"
 ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="$red<>"
