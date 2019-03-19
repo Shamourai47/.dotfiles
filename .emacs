@@ -1,4 +1,13 @@
+
+(require 'package)
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
+
+(setq TeX-auto-save t)
+(setq TeX-parser-self t)
 
 
 (setq debug-on-error t
@@ -46,5 +55,29 @@
 (xterm-mouse-mode)
 
 (custom-set-variables
- '(custom-enabled-themes (quote (wombat))))
-(custom-set-faces)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (wombat)))
+ '(package-selected-packages
+   (quote
+    (jedi auto-complete auto-complete-chunk python math-symbol-lists auctex))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
+
+(defun my-LaTeX-mode()
+  (add-to-list 'TeX-view-program-list '("Evince" "evince --page-index=%(outpage) %o"))
+  (setq TeX-view-program-selection '((output-pdf "Evince")))
+                                        ; Other mode specific config
+  )
+
+(add-hook 'LaTeX-mode-hook 'my-LaTeX-mode)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
